@@ -1,5 +1,5 @@
-import fs from 'fs';
-import AWS from 'aws-sdk';
+const fs = require('fs');
+const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -7,24 +7,24 @@ const s3 = new AWS.S3({
 });
 
 
-function uploadFile(data: Buffer)  {
-    // fs.readFile(file, (err: any, data: any) => {
+function uploadFile(data)  {
+    
+        // console.log(data)
         // if (err) throw err;
         const params = {
             Bucket: 'dejavux2', // pass your bucket name
-            Key: 'dfdfdf', // file will be saved as testBucket/dfdfdf
+            Key: 'dfdfdf', // file will be saved as testBucket/contacts.csv
             Body: data,
             ContentType: 'image/jpeg'
-        };
-        s3.upload(params, (err: any, data: { Location: any; }) => {
+        }
+        const uploadedImage = s3.upload(params, (err, data) => {
             if (err) {
                 throw err;
             } else {
                 console.log(`File uploaded successfully at ${data.Location}`)
             }
         });
-//   });
 };
 
-export default uploadFile;
-// uploadFile('sd.webp');
+module.exports = uploadFile;
+// uploadFile('we.jpg');

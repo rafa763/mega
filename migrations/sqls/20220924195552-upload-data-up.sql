@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS 'uploads' {
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    mega VARCHAR(255) ,
+    gofile VARCHAR(255) ,
+    text VARCHAR(255) ,
+    uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+
+};
