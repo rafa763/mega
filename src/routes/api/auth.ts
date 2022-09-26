@@ -112,7 +112,7 @@ server.get('/forgot_password', (req: Request, res: Response) => {
 server.post('/reset_password/:token', async (req: Request, res: Response) => {
     const { token } = req.params
     const { password, confpassword } = req.body
-    if (!password !== !confpassword) {
+    if (password !== confpassword) {
         return res.status(400).json({ error: 'password and confirm password don\'t match' })
     }
     if (!token || !password || !confpassword) {
