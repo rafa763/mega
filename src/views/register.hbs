@@ -1,22 +1,21 @@
-<img width="200" src="https://pomf2.lain.la/f/83oropu4.png" title="logo" alt="logo">
-<form action="" method="post">
-<label for="username">username</label>
-<input type="text" name="username" id="username">
-<br>
-<br>
-<br>
-<label for="email">email</label>
-<input type="email" name="email" id="email">
-<br>
-<br>
-<br>
-<label for="password">password</label>
-<input type="password" name="password" id="password">
-<br>
-<br>
-<br>
-<button type="submit">Register</button>
-<br>
-<br>
-<br>
-<a href="login">already have an account? login</a>
+<form class="form" action="" method="post">
+  <h1> Create account</h1>
+<h2 style="color: red;">{{message}}</h2>
+  <div class="field">
+    <input class="f_input" type="text" name="username" id="username" required />
+    <label class="f_label" for="username">Username</label>
+  </div>
+
+  <div class="field">
+    <input class="f_input" type="text" name="email" id="email" required />
+    <label class="f_label" for="email">Email</label>
+  </div>
+
+  <div class="field">
+    <input class="f_input" type="password" name="password" id="password" required />
+    <label class="f_label" for="password">Password</label>
+  </div>
+
+  <button type="submit">Sign up</button>
+  <h2>Already have an account? <span><a href="login">Sign in</a></span></h2>
+</form>

@@ -1,10 +1,9 @@
 CREATE DATABASE IF NOT EXISTS 'uploads' {
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    mega VARCHAR(255) ,
-    gofile VARCHAR(255) ,
-    text VARCHAR(255) ,
+    uid VARCHAR(100) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    text VARCHAR(1000) ,
     uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    
-
+    upvotes INT NOT NULL DEFAULT 0,
+    downvotes INT NOT NULL DEFAULT 0,
+    down BOOLEAN NOT NULL DEFAULT FALSE,
 };

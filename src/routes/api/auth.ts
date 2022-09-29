@@ -17,11 +17,14 @@ server.post('/register', userValidationRules(), validate, async (req: Request, r
         const lookup_mail = await usr.get_user(email)
         const lookup_name = await usr.get_by_name(username)
         if (lookup_mail && lookup_name) {
-            return res.status(400).json({message: 'Username and email already in use'})
+            // return res.status(400).json({message: 'Username and email already in use'})
+            return res.render('register', {title: 'Register', message: 'Username and email already in use'})
         } else if (lookup_mail) {
-            return res.status(400).json({ error: 'email already in use' })
+            // return res.status(400).json({ error: 'email already in use' })
+            return res.render('register', {title: 'Register', message: 'Email already in use'})
         } else if (lookup_name) {
-            return res.status(400).json({ error: 'username already in use' })
+            // return res.status(400).json({ error: 'username already in use' })
+            return res.render('register', {title: 'Register', message: 'Username already in use'})
         }
         const newUser = await usr.create(user)
         // send email confirmation
@@ -38,7 +41,7 @@ server.post('/register', userValidationRules(), validate, async (req: Request, r
 })
 
 server.get('/register', (req: Request, res: Response) => {
-    res.render('register', {layout: false})
+    res.render('register', {title: 'Register', message: ''})
 })
 
 server.post('/login', async (req: Request, res: Response) => {
@@ -50,12 +53,13 @@ server.post('/login', async (req: Request, res: Response) => {
     try {
         const user = await usr.get_user(email)
         if (!user || !bcrypt.compareSync(password + PEPPER, user.password)) {
-            return res.status(401).json({ error: 'Invalid email/password' })
+            // return res.status(401).json({ error: 'Invalid email/password' })
+            return res.render('error', {title: 'Error', msg: 'Invalid email/password'})
         }
 
         if (user.status === 'pending') {
             // return res.status(401).json({ error: 'Please verify your email' })
-            return res.render('verify_mail', {layout: false})
+            return res.render('verify_mail', {title: 'Verify Email'})
         }
 
         // issue JWT
@@ -73,7 +77,7 @@ server.post('/login', async (req: Request, res: Response) => {
 })
 
 server.get('/login', (req: Request, res: Response) => {
-    res.render('login', {layout: false})
+    res.render('login', {title: 'Login'})
 })
 
 server.post('/forgot_password', async (req: Request, res: Response) => {
@@ -106,7 +110,7 @@ server.post('/forgot_password', async (req: Request, res: Response) => {
 })
 
 server.get('/forgot_password', (req: Request, res: Response) => {
-    res.render('forgot', {layout: false})
+    res.render('forgot', {title: 'Forgot password'})
 })
 
 server.post('/reset_password/:token', async (req: Request, res: Response) => {
@@ -149,7 +153,7 @@ server.post('/reset_password/:token', async (req: Request, res: Response) => {
 })
 
 server.get('/reset_password/:token', (req: Request, res: Response) => {
-    res.render('reset', {layout: false})
+    return res.render('reset', {title: 'Reset password'})
 })
 
 server.get('/confirm/:token', async (req: Request, res: Response) => {

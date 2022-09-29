@@ -1,14 +1,179 @@
-<img width="200" src="https://pomf2.lain.la/f/83oropu4.png" title="logo" alt="logo">
-<br>
-<br>
-<form action="" method="post">
-<label for="password">password</label>
-<input type="password" name="password" id="password">
-<br>
-<br>
-<label for="password">confirm password</label>
-<input type="password" name="confpassword" id="password">
-<br>
-<br>
-<button type="submit">reset password</button>  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+
+body {
+  background-color: #000;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+  background-color: #000;
+}
+
+
+.form {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  max-width: 500px;
+  padding: 50px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+h1 {
+  text-align: center;
+  color: #ecec3b;
+  margin-bottom: 40px;
+}
+a, h2 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  color: #bdbdbd;
+  margin-top: 20px;
+}
+
+h2 span {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #ecec3b;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #ecec3b;
+  margin-top: 5px;
+}
+
+a:visited {
+    color: #ecec3b;
+}
+
+/*  Field */
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.field:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background: #efdc5d;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s ease;
+}
+
+.field:hover:before {
+  width: 100%;
+}
+
+/*  Input */
+.f_input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 10px 2px 0;
+  border-bottom: 2px solid #e0e0e0;
+  color: #bdbdbd !important;
+}
+label {
+    background: #000 !important;
+}
+/*  Label */
+.f_label {
+  color: #bdbdbd;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.f_input:focus + .f_label,
+.f_input:valid + .f_label {
+  top: 0;
+  font-size: 1rem;
+  background-color: white;
+}
+
+/*  Button */
+button {
+  background: #8f8f03;
+  color: white;
+  padding: 12px 0;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3c3c01;
+}
+
+  </style>
+</head>
+<body>
+  <form class="form" action="" method="post">
+  <img width="150" src="https://pomf2.lain.la/f/83oropu4.png" alt="logo">
+
+  <div class="field">
+    <input class="f_input" type="password" name="password" id="password" required />
+    <label class="f_label" for="password">Password</label>
+  </div>
+
+    <div class="field">
+    <input class="f_input" type="password" name="confpassword" id="password" required />
+    <label class="f_label" for="confpassword">Confirm password</label>
+  </div>
+
+  <button type="submit">Reset password</button>
 </form>
+</body>
+</html>

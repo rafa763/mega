@@ -1,17 +1,17 @@
-<img width="200" src="https://pomf2.lain.la/f/83oropu4.png" title="logo" alt="logo">
-<form action="" method="post">
-<label for="email">email</label>
-<input type="email" name="email" id="email">
-<br>
-<br>
-<label for="password">password</label>
-<input type="password" name="password" id="password">
-<br>
-<br>
-<button type="submit">login</button>
+<form class="form" action="" method="post">
+  <img width="150" src="https://pomf2.lain.la/f/83oropu4.png" alt="logo">
 
-<br>
-<br>
-<a href="register">don't have an account? register</a>
-<br>
-<a href="forgot_password">forgot your password?</a>
+  <div class="field">
+    <input class="f_input" type="text" name="email" id="email" required />
+    <label class="f_label" for="email">Email</label>
+  </div>
+
+  <div class="field">
+    <input class="f_input" type="password" name="password" id="password" required />
+    <label class="f_label" for="password">Password</label>
+  </div>
+
+  <button type="submit">Log in</button>
+  <h2>Don't have an account? <span><a href="register">Sign up</a></span></h2>
+  <a href="forgot_password">Reset password?</a>
+</form>
